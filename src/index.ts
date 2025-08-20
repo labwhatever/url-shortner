@@ -27,6 +27,11 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
+app.get("/",(req,res)=>{
+  res.json({
+    message: "Welcome to the URL Shortener API",
+  })
+})
 app.post("/", async (req, res) => {
   try {
     const result = urlSchema.safeParse(req.body);
